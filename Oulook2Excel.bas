@@ -19,6 +19,7 @@ Sub CopyToExcel()
   Dim rCount As Long
   Dim bXStarted As Boolean
   Const strPath As String = "[YOUR WORKBOOK PATH]" 'the path of the workbook
+  Const xlWBSheetName As String = "[YOUR SHEET NAME]"
 
   If Application.ActiveExplorer.Selection.Count = 0 Then
     MsgBox "No Items selected!", vbCritical, "Error"
@@ -35,7 +36,7 @@ Sub CopyToExcel()
 
 'Open the workbook to input the data
   Set xlWB = xlApp.Workbooks.Open(strPath)
-  Set xlSheet = xlWB.Sheets("All Questions")
+  Set xlSheet = xlWB.Sheets(xlWBSheetName)
 
 'Process each selected record
   For Each olItem In Application.ActiveExplorer.Selection
@@ -55,7 +56,6 @@ Sub CopyToExcel()
     xlWB.Sheets("Q" & j).Range("B2:B100").WrapText = True
     Next j
    
-    xlWB.Sheets("Additional Comments").Range("B2:B100").WrapText = True
     xlWB.Save
   Next olItem
 
