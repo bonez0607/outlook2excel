@@ -1,4 +1,4 @@
-'Semi-colong delineated'
+'Semi-colon delineated'
 
 Attribute VB_Name = "Oulook2Excel"
 Option Explicit
